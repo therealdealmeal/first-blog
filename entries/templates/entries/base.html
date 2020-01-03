@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>Project Blog</title>
+    
+	<link rel="stylesheet" type="text/css" href="{% static 'entries/css/style.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <section id="navigation">
+    <div class="bg-image">
+      <div class="bw-gradient">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 header">
+              <h1 class="text-center text-uppercase">clean blog</h1>
+              <p class="text-center text-capitalize">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header">
+        <div class="sub-header text-capitalize font-weight-bold">
+          <!-- <ul class="left-menu">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about<a></li>
+          </ul> -->
+          <div class="logo">
+            <a href="{% url 'blog-home' %}">Project Blog</a>
+          </div>
+          <ul class="right-menu">
+            <li><a href="{% url 'logout' %}">Logout<a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+
+	<div class="container">
+		<div class="row">
+
+		  {% block content %} {% endblock %}
+			
+		<div class="col-md-4">
+		
+
+			<div class="card my-4">
+				<h5 class="card-header text-center">Logged in Information</h5>
+		        <div class="card-body">
+		          <ul class="list-unstyled mb-0">
+		            <li>
+		              <p> <strong>Username:</strong> {{user.username}}</p>
+		            </li>
+		            <li>
+		              <p> <strong>Email:</strong> {{user.email}}</p>
+		            </li>
+		          </ul>
+		        </div>
+			</div>
+
+
+		</div>
+		</div>
+	</div>
+
+  </section>
+
+	<!-- <div class="col-md-8">
+		<div class="card mb-4">
+			<div class="card-header">
+				Leave a Comment
+			</div>
+			<div class="card-body">
+				<form type="submit" class="btn btn-primary">
+					<button>Post Comment</button>
+				</form>
+			</div>
+		</div>
+	</div> -->
+	
+
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
